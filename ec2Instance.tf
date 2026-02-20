@@ -11,7 +11,7 @@ data "aws_ami" "amazon_linux_image" {
     values = ["hvm"]
   }
 
-  owners = ["232789950773"] # Amazon
+  owners = ["137112412989"] # Amazon
 }
 
 resource "aws_instance" "amazon_linux_instance" {
