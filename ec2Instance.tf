@@ -22,3 +22,12 @@ resource "aws_instance" "amazon_linux_instance" {
     Name = "amazon_linux_instance_terraform_demo"
   }
 }
+
+resource "aws_s3_bucket" "s3_demo_bucket" {
+  bucket = "my-tf-test-bucket-akhilkumar0024"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
