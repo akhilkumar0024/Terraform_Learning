@@ -90,3 +90,15 @@ resource "aws_security_group" "docker_prometheus_server_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+# Control state for Docker/Prometheus Server
+resource "aws_ec2_instance_state" "docker_server_state" {
+  instance_id = aws_instance.Docker_Prometheus_Server.id
+  state       = "stopped" # Change to "running" to start it back up
+}
+
+# Control state for Grafana Server
+resource "aws_ec2_instance_state" "grafana_server_state" {
+  instance_id = aws_instance.Graffana_Monitoring_Server.id
+  state       = "stopped" # Change to "running" to start it back up
+}
