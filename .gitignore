@@ -1,0 +1,13 @@
+# Ignore local terraform state
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+
+# Ignore plan files
+*.plan
+*.plantf
+*.tfplan
+
+# Ignore the provider directory
+.terraform/
