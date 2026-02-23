@@ -16,23 +16,29 @@ data "aws_ami" "amazon_linux_image" {
 
 # Docker Prometheus Server
 resource "aws_instance" "Docker_Prometheus_Server" {
-  ami           = data.aws_ami.amazon_linux_image.id
+  ami           = "ami-051a31ab2f4d498f5"
   instance_type = "t3.medium"
   key_name = "dockerKeyPair"
   vpc_security_group_ids = [aws_security_group.docker_prometheus_server_sg.id]
   tags = {
     Name = "Docker_Prometheus_Server"
   }
+  lifecycle {
+    ignore_changes = [ami]
+  }
 }
 
 # Graffana Monitoring Server
 resource "aws_instance" "Graffana_Monitoring_Server" {
-  ami           = data.aws_ami.amazon_linux_image.id
+  ami           = "ami-051a31ab2f4d498f5"
   instance_type = "t3.medium"
   key_name = "dockerKeyPair"
   vpc_security_group_ids = [aws_security_group.graffana_server_sg.id]
   tags = {
     Name = "Graffana_Monitoring_Server"
+  }
+  lifecycle {
+    ignore_changes = [ami]
   }
 }
 
